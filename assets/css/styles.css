@@ -1,0 +1,13 @@
+.card {
+  height: 100%;
+}
+
+.row-cols-md-3 > .col {
+  display: flex;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
