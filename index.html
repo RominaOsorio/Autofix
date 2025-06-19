@@ -71,6 +71,7 @@
         </div>
       </div>
 
+      <!-- Formulario -->
       <div class="row my-5">
         <div class="col-12">
           <form class="border p-4 shadow-sm bg-light rounded">
@@ -78,12 +79,12 @@
 
             <div class="mb-3">
               <label for="name" class="form-label">Nombre del Cliente</label>
-              <input type="text" class="form-control" id="name" required />
+              <input type="text" class="form-control" id="name" />
             </div>
 
             <div class="mb-3">
               <label for="email" class="form-label">Tipo de Reparación</label>
-              <select class="form-select" id="repairType" required>
+              <select class="form-select" id="repairType">
                 <option value="" disabled selected>
                   Seleccione una opción
                 </option>
@@ -107,12 +108,7 @@
               <label for="fechaInput" class="form-label"
                 >Fecha de la cita</label
               >
-              <input
-                type="date"
-                class="form-control"
-                id="fechaInput"
-                required
-              />
+              <input type="date" class="form-control" id="fechaInput" />
             </div>
 
             <h5 class="mt-4">Pago</h5>
@@ -146,9 +142,12 @@
               />
             </div>
 
-            <button type="submit" class="btn btn-success">
-              Confirmar Solicitud
-            </button>
+            <div class="text-center my-5">
+              <button type="submit" class="btn btn-success">
+                Confirmar Solicitud
+              </button>
+            </div>
+            <div class="mt-4 text-center" id="formAlert"></div>
           </form>
         </div>
       </div>
@@ -164,5 +163,7 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+
+    <script src="./assets/js/index.js "></script>
   </body>
 </html>
