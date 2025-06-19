@@ -14,7 +14,7 @@ Brindar una solución funcional, responsive y escalable que permita a AutoFix:
 ## 🛠️ Tecnologías Utilizadas
 
 - HTML
-- CSS
+- CSS3
 - JavaScript
 - Git & GitHub
 
