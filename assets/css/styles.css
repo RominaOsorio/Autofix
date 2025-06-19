@@ -11,3 +11,18 @@
   flex-direction: column;
   justify-content: space-between;
 }
+
+.hero-section {
+  height: 50vh;
+  width: 100%;
+  background-image: url("../img/hero.jpg");
+  background-size: cover;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.hero-section > div {
+  position: relative;
+  z-index: 2;
+}
