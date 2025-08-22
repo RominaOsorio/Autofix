@@ -127,17 +127,44 @@
             </div>
 
             <div class="mb-3">
-              <label for="fechaInput" class="form-label"
-                >Fecha de la cita</label
-              >
-              <input
-                type="date"
-                class="form-control"
-                id="fechaInput"
-                required
-              />
-              <div class="invalid-feedback">
-                Seleccione una fecha para la cita.
+              <h5 class="mb-3 mt-4">Agendamiento</h5>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="fechaInput" class="form-label"
+                    >Fecha de la cita</label
+                  >
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="fechaInput"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Seleccione una fecha válida.
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="horaInput" class="form-label"
+                    >Hora de la cita</label
+                  >
+                  <select class="form-select" id="horaInput" required>
+                    <option value="" disabled selected>
+                      Seleccione una hora
+                    </option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="12:00">12:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="16:00">16:00</option>
+                    <option value="17:00">17:00</option>
+                    <option value="18:00">18:00</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Seleccione una hora válida entre 10:00 y 18:00.
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -212,24 +239,6 @@
       crossorigin="anonymous"
     ></script>
 
-    <script>
-      (function () {
-        "use strict";
-        const forms = document.querySelectorAll(".needs-validation");
-        Array.from(forms).forEach(function (form) {
-          form.addEventListener(
-            "submit",
-            function (event) {
-              if (!form.checkValidity()) {
-                event.preventDefault();
-                event.stopPropagation();
-              }
-              form.classList.add("was-validated");
-            },
-            false
-          );
-        });
-      })();
-    </script>
+    <script src="./assets/js/index.js"></script>
   </body>
 </html>
