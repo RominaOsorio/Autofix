@@ -37,7 +37,7 @@
             />
             <div class="card-body my-4">
               <h5 class="card-title">Cambio de Aceite</h5>
-              <p>Aceite y filtro nuevos para un motor más duradero.</p>
+              <p>Precio: $500 MXN</p>
             </div>
           </div>
         </div>
@@ -51,7 +51,7 @@
             />
             <div class="card-body my-4">
               <h5 class="card-title">Revisión de frenos</h5>
-              <p>Chequeo completo de frenos para tu seguridad.</p>
+              <p>Precio: $700 MXN</p>
             </div>
           </div>
         </div>
@@ -65,34 +65,52 @@
             />
             <div class="card-body my-4">
               <h5 class="card-title">Diagnóstico eléctrico</h5>
-              <p>Detectamos y reparamos fallas eléctricas.</p>
+              <p>Precio: $600 MXN</p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Formulario -->
       <div class="row my-5">
         <div class="col-12">
-          <form class="border p-4 shadow-sm bg-light rounded">
+          <form
+            class="border p-4 shadow-sm bg-light rounded needs-validation"
+            novalidate
+          >
             <legend class="my-3">Solicitar Reparación</legend>
 
             <div class="mb-3">
               <label for="name" class="form-label">Nombre del Cliente</label>
-              <input type="text" class="form-control" id="name" />
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+"
+                title="Solo se permiten letras"
+                required
+              />
+              <div class="invalid-feedback">
+                Por favor ingrese un nombre válido (solo letras).
+              </div>
             </div>
 
             <div class="mb-3">
-              <label for="email" class="form-label">Tipo de Reparación</label>
-              <select class="form-select" id="repairType">
+              <label for="repairType" class="form-label"
+                >Tipo de Reparación</label
+              >
+              <select class="form-select" id="repairType" required>
                 <option value="" disabled selected>
                   Seleccione una opción
                 </option>
                 <option value="oilChange">Cambio de aceite</option>
-                <option value="tireChange">Cambio de neumáticos</option>
-                <option value="brakeService">Servicio de frenos</option>
-                <option value="batteryReplacement">Reemplazo de batería</option>
+                <option value="tireChange">Revisión de frenos</option>
+                <option value="batteryReplacement">
+                  Diagnóstico eléctrico
+                </option>
               </select>
+              <div class="invalid-feedback">
+                Seleccione un tipo de reparación.
+              </div>
             </div>
 
             <div class="mb-3">
@@ -101,14 +119,26 @@
                 class="form-control"
                 id="descripcion"
                 rows="3"
+                required
               ></textarea>
+              <div class="invalid-feedback">
+                Por favor agregue una descripción.
+              </div>
             </div>
 
             <div class="mb-3">
               <label for="fechaInput" class="form-label"
                 >Fecha de la cita</label
               >
-              <input type="date" class="form-control" id="fechaInput" />
+              <input
+                type="date"
+                class="form-control"
+                id="fechaInput"
+                required
+              />
+              <div class="invalid-feedback">
+                Seleccione una fecha para la cita.
+              </div>
             </div>
 
             <h5 class="mt-4">Pago</h5>
@@ -122,14 +152,28 @@
                 class="form-control"
                 id="tarjetaInput"
                 placeholder="**** **** **** 1234"
+                pattern="\d{16}"
+                required
               />
+              <div class="invalid-feedback">
+                Ingrese un número de tarjeta válido de 16 dígitos.
+              </div>
             </div>
 
             <div class="mb-3">
               <label for="nombreTitularInput" class="form-label"
                 >Nombre del titular</label
               >
-              <input type="text" class="form-control" id="nombreTitularInput" />
+              <input
+                type="text"
+                class="form-control"
+                id="nombreTitularInput"
+                pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+"
+                required
+              />
+              <div class="invalid-feedback">
+                Ingrese el nombre del titular correctamente.
+              </div>
             </div>
 
             <div class="mb-3">
@@ -139,7 +183,12 @@
                 class="form-control"
                 id="cvvInput"
                 maxlength="3"
+                pattern="\d{3}"
+                required
               />
+              <div class="invalid-feedback">
+                Ingrese un CVV válido de 3 dígitos.
+              </div>
             </div>
 
             <div class="text-center my-5">
@@ -147,7 +196,6 @@
                 Confirmar Solicitud
               </button>
             </div>
-            <div class="mt-4 text-center" id="formAlert"></div>
           </form>
         </div>
       </div>
@@ -164,6 +212,24 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="./assets/js/index.js "></script>
+    <script>
+      (function () {
+        "use strict";
+        const forms = document.querySelectorAll(".needs-validation");
+        Array.from(forms).forEach(function (form) {
+          form.addEventListener(
+            "submit",
+            function (event) {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add("was-validated");
+            },
+            false
+          );
+        });
+      })();
+    </script>
   </body>
 </html>
